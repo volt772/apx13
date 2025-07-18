@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- DatePickerDialog에 적용할 테마 -->
+    <style name="CustomDatePickerDialogTheme" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">#D8D7D6</item>
+        <item name="android:background">#272829</item>
+        <item name="android:textColorPrimary">#FFFFFF</item> <!-- ✅ 헤더 텍스트 색상 -->
+    </style>
+
+</resources>

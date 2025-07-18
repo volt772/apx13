@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "252659016912",
+    "project_id": "apx-template",
+    "storage_bucket": "apx-template.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252659016912:android:8da96bca69c3c157fa6ad5",
+        "android_client_info": {
+          "package_name": "com.apx.crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxi9fvjaK-M8nV2BboXVQB3nKE-dPwq30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252659016912:android:19feb225913f2d07fa6ad5",
+        "android_client_info": {
+          "package_name": "com.apx.grid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxi9fvjaK-M8nV2BboXVQB3nKE-dPwq30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252659016912:android:5ceab4ed2058eab3fa6ad5",
+        "android_client_info": {
+          "package_name": "com.apx.linea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxi9fvjaK-M8nV2BboXVQB3nKE-dPwq30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252659016912:android:766c73b27600682cfa6ad5",
+        "android_client_info": {
+          "package_name": "com.apx.simple"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxi9fvjaK-M8nV2BboXVQB3nKE-dPwq30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252659016912:android:b6956dd850442ebbfa6ad5",
+        "android_client_info": {
+          "package_name": "com.apx.templatev1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxi9fvjaK-M8nV2BboXVQB3nKE-dPwq30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
