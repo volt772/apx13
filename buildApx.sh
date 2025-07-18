@@ -16,9 +16,9 @@ echo '
 |______/ \____|_|_|\____|\____)_|
 -----------------------------------------
 '
-read -p "Enter apx999 TAG: " BTAG
-BASE_DIR="/Users/allen/work/sources/apx/apx_projects/Android-apx999"
-RELEASE_BUILD_DIR="$BASE_DIR/release_apx999_$BTAG""_bundle"
+read -p "Enter {APPNAME} TAG: " BTAG
+BASE_DIR="/Users/allen/work/sources/apx/apx_projects/Android-{APPNAME}"
+RELEASE_BUILD_DIR="$BASE_DIR/release_{APPNAME}_$BTAG""_bundle"
 
 #: 기존 빌드 디렉토리 유무 검사
 if [ -d "$RELEASE_BUILD_DIR" ]; then
@@ -72,7 +72,7 @@ fi
 #: 시작
 #read -p "Enter Git TAG: " BTAG
 
-BUILD_DIR="./tmp-apx999-bundle-$BTAG"
+BUILD_DIR="./tmp-{APPNAME}-bundle-$BTAG"
 
 #: 디렉토리 복사
 mkdir -p $BUILD_DIR
@@ -83,13 +83,13 @@ cd $BUILD_DIR
 read -p "Enter KeyStore Password : " KSPW
 read -p "Enter Key Password : " KPW
 
-export "apx999_KEYSTORE_PW="$KSPW
-export "apx999_KEY_PW="$KPW
+export "{APPNAME}_KEYSTORE_PW="$KSPW
+export "{APPNAME}_KEY_PW="$KPW
 
 ./gradlew clean :app:bundleRelease
 
 #: Copy APK, Mapping File
-OUTPUT_DIR="../release_apx999_$BTAG""_bundle"
+OUTPUT_DIR="../release_{APPNAME}_$BTAG""_bundle"
 
 mkdir -p $OUTPUT_DIR
 cp -rf ./app/build/outputs/bundle/release/* $OUTPUT_DIR
@@ -101,10 +101,10 @@ if [ -f "./app/build/outputs/mapping/release/missing_rules.txt" ]; then
 fi
 
 #: Universal APKs 생성
-java -jar "$BUNDLETOOL_FILE" build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=$OUTPUT_DIR/apx999-release-"$BTAG"-universal.apks --ks=../apx_keystore/apx999_keystore.jks --ks-pass=pass:$KSPW --ks-key-alias=apx999_alias --key-pass=pass:$KPW --mode=universal
+java -jar "$BUNDLETOOL_FILE" build-apks --bundle=./app/build/outputs/bundle/release/app-release.aab --output=$OUTPUT_DIR/{APPNAME}-release-"$BTAG"-universal.apks --ks=../apx_keystore/{APPNAME}_keystore.jks --ks-pass=pass:$KSPW --ks-key-alias={APPNAME}_alias --key-pass=pass:$KPW --mode=universal
 
 #: Move to Output Directory
-mv $OUTPUT_DIR/app-release.aab $OUTPUT_DIR/apx999-release-"$BTAG".aab
+mv $OUTPUT_DIR/app-release.aab $OUTPUT_DIR/{APPNAME}-release-"$BTAG".aab
 
 #: Delete Temporary build DIR
 cd ..
@@ -120,5 +120,5 @@ echo "-------------------------------------------"
 
 #: Signing Process (hnjeong Custom)
 signingVersion=`echo $OUTPUT_DIR | grep -Eo '[+-]?[0-9]+([.][0-9]+)+([.][0-9][a-z]+)?'`
-cd "/Users/allen/work/sources/apx/apx_projects/Android-apx999/release_apx999_$signingVersion""_bundle"
-jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore ../apx_keystore/apx999_keystore.jks ./apx999-release-$signingVersion.aab apx999_alias
+cd "/Users/allen/work/sources/apx/apx_projects/Android-{APPNAME}/release_{APPNAME}_$signingVersion""_bundle"
+jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore ../apx_keystore/{APPNAME}_keystore.jks ./{APPNAME}-release-$signingVersion.aab {APPNAME}_alias

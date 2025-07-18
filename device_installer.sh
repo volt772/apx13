@@ -24,17 +24,17 @@ makeInstallToDevice() {
 
 	echo "\n-----------------------------------------------------------------------------------------------------------------------------------------------\n"
 	echo "▶▶▶▶▶ [INSTALLING : Device : ${BLUE}${device}${NC}, Version : ${PURPLE}${version}${NC}]"
-	echo "java -jar $BUNDLETOOL_FILE install-apks --apks=./apx999-release-"$version"-universal.apks --device-id="$device""
+	echo "java -jar $BUNDLETOOL_FILE install-apks --apks=./{APPNAME}-release-"$version"-universal.apks --device-id="$device""
 	echo "\n-----------------------------------------------------------------------------------------------------------------------------------------------"
 
 	#: 설치
-	java -jar $BUNDLETOOL_FILE install-apks --apks=./apx999-release-"$version"-universal.apks --device-id="$device"
+	java -jar $BUNDLETOOL_FILE install-apks --apks=./{APPNAME}-release-"$version"-universal.apks --device-id="$device"
 	exit
 }
 
 read -p "설치대상 TAG 입력: " BTAG
-BASE_DIR="/Users/allen/work/sources/apx/apx_projects/Android-apx999"
-RELEASE_BUILD_DIR="$BASE_DIR/release_apx999_$BTAG""_bundle"
+BASE_DIR="/Users/allen/work/sources/apx/apx_projects/Android-{APPNAME}"
+RELEASE_BUILD_DIR="$BASE_DIR/release_{APPNAME}_$BTAG""_bundle"
 
 #: 빌드 디렉토리 검사
 if [ ! -d "$RELEASE_BUILD_DIR" ]; then
