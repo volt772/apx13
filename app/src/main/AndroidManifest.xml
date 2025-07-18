@@ -26,16 +26,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".presentation.info.InfoActivity"
-            android:theme="@style/Theme.Apx"
-            android:exported="false" />
-
-        <activity
-            android:name=".presentation.opensource.OpenSourceActivity"
-            android:theme="@style/Theme.Apx"
-            android:exported="false" />
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3086701116400661~7198438903" />
