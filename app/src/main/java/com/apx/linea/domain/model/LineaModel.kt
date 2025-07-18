@@ -11,5 +11,6 @@ data class LineaModel(
     val number: String,
     val memo: String?,
     val mydate: LocalDate,
-    val photoPath: String?
+    val photoPath: String?,
+    val createdAt: String?
 ) : Parcelable

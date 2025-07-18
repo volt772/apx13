@@ -14,6 +14,8 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 
@@ -111,12 +113,14 @@ class MainViewModel @Inject constructor(
                 val randomDays = (0..ChronoUnit.DAYS.between(startDate, endDate)).random()
                 val randomDate = startDate.plusDays(randomDays)
 
+                val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
                 val linea = LineaModel(
                     name = "테스트 제품 $index",
                     number = "SN2025-${1000 + index}",
                     memo = "자동 삽입된 테스트",
                     mydate = randomDate,
-                    photoPath = photoList.random()
+                    photoPath = photoList.random(),
+                    createdAt = LocalDateTime.now().format(formatter)
                 )
                 lineaUseCase.insertLinea(linea)
             }

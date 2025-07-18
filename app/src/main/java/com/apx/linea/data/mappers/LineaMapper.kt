@@ -9,7 +9,8 @@ fun Linea.toModel(): LineaModel = LineaModel(
     number = number,
     memo = memo,
     mydate = mydate,
-    photoPath = photoPath
+    photoPath = photoPath,
+    createdAt = createdAt
 )
 
 fun LineaModel.toEntity(): Linea = Linea(
@@ -18,5 +19,6 @@ fun LineaModel.toEntity(): Linea = Linea(
     number = number,
     memo = memo,
     mydate = mydate,
-    photoPath = photoPath
+    photoPath = photoPath,
+    createdAt = createdAt
 )

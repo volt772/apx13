@@ -58,6 +58,8 @@ import com.apx.linea.presentation.ui.theme.AxGray500
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
@@ -256,13 +258,15 @@ fun saveLinea(
 
     if (name.isNotBlank() && number.isNotBlank() && mydate != null) {
 
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
         val newLinea = LineaModel(
             id = linea?.id?: 0L,
             name = name,
             number = number,
             memo = memo?.trim().takeIf { !it.isNullOrBlank() } ?: "",
             mydate = mydate,
-            photoPath = photoPath?.trim().takeIf { !it.isNullOrBlank() } ?: ""
+            photoPath = photoPath?.trim().takeIf { !it.isNullOrBlank() } ?: "",
+            createdAt = LocalDateTime.now().format(formatter)
         )
 
         val message = if (isEditMode) {
