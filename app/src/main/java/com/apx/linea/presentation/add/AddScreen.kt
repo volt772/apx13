@@ -55,6 +55,7 @@ import com.apx.linea.presentation.dialog.LineaDateField
 import com.apx.linea.presentation.ext.FileExt.copyUriToInternalStorage
 import com.apx.linea.presentation.ui.theme.AxGray400
 import com.apx.linea.presentation.ui.theme.AxGray500
+import com.apx.linea.presentation.ui.theme.AxIconGray
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -109,6 +110,7 @@ fun AddScreen(
                         Icon(
                             painter = painterResource(id = R.drawable.ic_back),
                             contentDescription = "뒤로가기",
+                            tint = AxIconGray
                         )
                     }
                 },
@@ -131,6 +133,7 @@ fun AddScreen(
                         Icon(
                             painter = painterResource(id = R.drawable.ic_add),
                             contentDescription = "저장",
+                            tint = AxIconGray
                         )
                     }
                 }

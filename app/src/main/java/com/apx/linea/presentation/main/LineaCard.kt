@@ -30,8 +30,10 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.apx.linea.R
 import com.apx.linea.domain.model.LineaModel
+import com.apx.linea.presentation.ui.theme.AxCardBackground
 import com.apx.linea.presentation.ui.theme.AxGray100
 import com.apx.linea.presentation.ui.theme.AxGray500
+import com.apx.linea.presentation.ui.theme.AxGray700
 import com.apx.linea.presentation.ui.theme.AxThird
 
 @Composable
@@ -74,7 +76,7 @@ fun LineaCard(
             ),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = AxThird
+            containerColor = AxCardBackground
         )
     ) {
         Column(
@@ -114,7 +116,7 @@ fun LineaCard(
                 style = MaterialTheme.typography.bodySmall,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                color = AxGray500
+                color = AxGray700
             )
 
 //            // 메모

@@ -22,7 +22,11 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.apx.linea.presentation.ui.theme.AxIconGray
 import com.apx.linea.presentation.ui.theme.AxPrimary
+import com.apx.linea.presentation.ui.theme.AxText
+import com.apx.linea.presentation.ui.theme.AxWhite
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,14 +56,14 @@ fun TopBarWithSearch(
                     value = query,
                     onValueChange = onQueryChange,
                     placeholder = {
-                        Text("검색어 입력", color = Color.White.copy(alpha = 0.6f))
+                        Text("검색어 입력", color = AxText)
                     },
                     singleLine = true,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(8.dp)
                         .focusRequester(focusRequester),
-                    textStyle = LocalTextStyle.current.copy(color = Color.White),
+                    textStyle = LocalTextStyle.current.copy(color = AxText, fontSize = 18.sp),
                     colors = TextFieldDefaults.textFieldColors(
                         containerColor = Color.Transparent,
                         focusedIndicatorColor = Color.Transparent,
@@ -72,16 +76,16 @@ fun TopBarWithSearch(
         actions = {
             if (isSearching) {
                 IconButton(onClick = onCloseClick) {
-                    Icon(Icons.Default.Close, contentDescription = "검색 닫기", tint = Color.White)
+                    Icon(Icons.Default.Close, contentDescription = "검색 닫기", tint = AxIconGray)
                 }
             } else {
                 IconButton(onClick = onSearchClick) {
-                    Icon(Icons.Default.Search, contentDescription = "검색", tint = Color.White)
+                    Icon(Icons.Default.Search, contentDescription = "검색", tint = AxIconGray)
                 }
             }
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = AxPrimary
+            containerColor = AxWhite
         )
     )
 }

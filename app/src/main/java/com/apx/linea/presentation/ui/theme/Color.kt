@@ -284,19 +284,27 @@ val AxBlueGray900 = Color(0xFF263238)
 
 /* -----------------------------------*/
 
-val AxPrimary = Color(0xFF2D3142)
-val AxSecondary = Color(0xFF4F5D75)
-val AxThird = Color(0xFFEF8354)
+val AxPrimary = Color(0xFF362C83)
+val AxSecondary = Color(0xFFF3F5FF)
+val AxThird = Color(0xFFDDE5F4)
 val AxFourth = Color(0xFFF4F4F4)
 val AxFifth = Color(0xFF1A1A1A)
 
 /* App Main Colors*/
-val AxPrimaryColor = AxRed600
-val AxSecondaryColor = AxRed200
-val AxTertiaryColor = AxRed900
-val AxBackground = AxFourth
-val AxText = AxFifth
 
 /* App StatusBar Colors*/
 val AxStatusBarLightColor = AxWhite
 val AxStatusBarDarkColor = AxBlack
+
+/* -----------------------------------*/
+val AxIconGray = AxGray900                                // 아이콘색상
+val AxFabIcon = Color(0xFFFFFFFF)      // Fab Button Icon 색상
+val AxFabBackground = Color(0xFF362C83)      // Fab Button Background 색상
+val AxText = Color(0xFF1A1A1A)
+val AxCardBackground = Color(0xFFDDE5F4)
+
+val AxThemePrimaryColor = AxPrimary
+val AxThemeSecondaryColor = AxSecondary
+val AxThemeTertiaryColor = AxThird
+
+/* -----------------------------------*/

@@ -16,15 +16,15 @@ import androidx.core.view.WindowCompat
 
 /* 색변경은 Color.kt에서 수정*/
 private val DarkColorScheme = darkColorScheme(
-    primary = AxPrimaryColor,
-    secondary = AxSecondaryColor,
-    tertiary = AxTertiaryColor
+    primary = AxThemePrimaryColor,
+    secondary = AxThemeSecondaryColor,
+    tertiary = AxThemeTertiaryColor
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = AxPrimaryColor,
-    secondary = AxSecondaryColor,
-    tertiary = AxTertiaryColor
+    primary = AxThemePrimaryColor,
+    secondary = AxThemeSecondaryColor,
+    tertiary = AxThemeTertiaryColor
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

@@ -36,7 +36,8 @@ import com.apx.linea.domain.model.LineaModel
 import com.apx.linea.presentation.MainViewModel
 import com.apx.linea.presentation.ads.BannersAds
 import com.apx.linea.presentation.state.CommonState
-import com.apx.linea.presentation.ui.theme.AxPrimary
+import com.apx.linea.presentation.ui.theme.AxFabBackground
+import com.apx.linea.presentation.ui.theme.AxFabIcon
 import com.apx.linea.presentation.ui.theme.AxSecondary
 import com.apx.linea.presentation.ui.theme.AxWhite
 
@@ -133,13 +134,13 @@ fun MainScreen(
             // FAB (Material3 기준)
             FloatingActionButton(
                 onClick = { onAddClick() },
-                containerColor = AxSecondary,
+                containerColor = AxFabBackground,
                 shape = CircleShape,
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(16.dp)
             ) {
-                Icon(Icons.Filled.Add, contentDescription = "추가", tint = AxWhite)
+                Icon(Icons.Filled.Add, contentDescription = "추가", tint = AxFabIcon)
             }
         }
 
