@@ -56,12 +56,12 @@ fun ApxTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            val window = (view.context as Activity).window
-//            window.statusBarColor = colorScheme.primary.toArgb()
-//            window.statusBarColor = Color(0xFFE7441C).toArgb()
-//            window.statusBarColor = Color.Transparent.toArgb()
-//            window.navigationBarColor = Color.RED
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+//            val window = (view.context as Activity).window
+////            window.statusBarColor = colorScheme.primary.toArgb()
+////            window.statusBarColor = Color(0xFFE7441C).toArgb()
+////            window.statusBarColor = Color.Transparent.toArgb()
+////            window.navigationBarColor = Color.RED
+//            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
 

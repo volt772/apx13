@@ -96,7 +96,7 @@ class MainActivity: ComponentActivity() {
             }
 
             ApxTheme {
-                SetStatusBarColor()
+//                SetStatusBarColor()
 
                 Box(modifier = Modifier.fillMaxSize()) {
                     AnimatedNavHost(
