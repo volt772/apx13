@@ -40,6 +40,9 @@ import com.apx.linea.presentation.ui.theme.AxFabBackground
 import com.apx.linea.presentation.ui.theme.AxFabIcon
 import com.apx.linea.presentation.ui.theme.AxSecondary
 import com.apx.linea.presentation.ui.theme.AxWhite
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.navigationBars
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -156,6 +159,14 @@ fun MainScreen(
         }
 
         // 하단 고정 배너 광고
-        BannersAds()
+        BannersAds(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    bottom = WindowInsets.navigationBars
+                        .asPaddingValues()
+                        .calculateBottomPadding() + 8.dp
+                )
+        )
     }
 }

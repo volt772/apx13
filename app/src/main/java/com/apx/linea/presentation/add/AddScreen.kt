@@ -51,15 +51,17 @@ import com.apx.linea.R
 import com.apx.linea.domain.model.LineaModel
 import com.apx.linea.presentation.ApxApp.Companion.appContext
 import com.apx.linea.presentation.MainViewModel
-import com.apx.linea.presentation.dialog.LineaDateField
+import com.apx.linea.presentation.dialog.DateField
 import com.apx.linea.presentation.ext.FileExt.copyUriToInternalStorage
 import com.apx.linea.presentation.ui.theme.AxGray400
 import com.apx.linea.presentation.ui.theme.AxGray500
 import com.apx.linea.presentation.ui.theme.AxIconGray
+import com.apx.linea.presentation.widget.AppOutlinedTextField
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 
@@ -78,6 +80,7 @@ fun AddScreen(
     var memo by remember { mutableStateOf(linea?.memo.orEmpty()) }
     var mydate by remember { mutableStateOf(linea?.mydate?: LocalDate.now()) }
     var photoPath by remember { mutableStateOf(linea?.photoPath.orEmpty()) }
+    var applyDate by remember { mutableStateOf(System.currentTimeMillis()) }
 
     val outLinedTextRequester = remember { BringIntoViewRequester() }
     val outLinedTextFocusRequester = remember { FocusRequester() }
@@ -148,44 +151,42 @@ fun AddScreen(
                 .verticalScroll(rememberScrollState())
                 .imePadding()
         ) {
-            OutlinedTextField(
+            AppOutlinedTextField(
                 value = name,
                 onValueChange = {
                     if (it.length <= 15) name = it
                 },
                 label = { Text("FD1") },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = AxGray400,
-                    unfocusedBorderColor = AxGray400
-                )
+                modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            LineaDateField (
-                purchaseDate = mydate,
-                onDateSelected = { mydate = it }
+            DateField(
+                applyDate = applyDate,
+                title = "일자",
+                onDateSelected = {
+                    applyDate = it
+                        .atStartOfDay(ZoneId.systemDefault()) // 시스템 타임존 기준
+                        .toInstant()
+                        .toEpochMilli()
+                }
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            OutlinedTextField(
+            AppOutlinedTextField(
                 value = number,
                 onValueChange = { number = it },
                 singleLine = true,
                 label = { Text("FD2") },
-                modifier = Modifier.fillMaxWidth(),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = AxGray400,
-                    unfocusedBorderColor = AxGray400
-                )
+                modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            OutlinedTextField(
+            AppOutlinedTextField(
                 value = memo,
                 onValueChange = { memo = it },
                 label = { Text("FD3") },
@@ -202,11 +203,7 @@ fun AddScreen(
                             }
                         }
                     },
-                maxLines = 20,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = AxGray400,
-                    unfocusedBorderColor = AxGray400
-                )
+                maxLines = 20
             )
 
             Spacer(modifier = Modifier.height(20.dp))
